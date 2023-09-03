@@ -1,8 +1,3 @@
-<script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
-
-
 # Advanced-Vision-Systems-Camera-Calibration-Neural-Network-Deployment
 This repository presents, wherein camera functionalities have been intricately integrated with neural network deployment on Jetson. From intricate camera calibrations to robust object detection using TensorRT, the intricacies of advanced computer vision methodologies have been meticulously explored and implemented in f1 tenth car.
 
