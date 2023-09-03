@@ -55,4 +55,6 @@ Loss = λ<sub>coord</sub> ∑<sub>i=0</sub><sup>S²</sup> ∑<sub>j=0</sub><sup>
 
 ---
 
+## Conclusion:
+
 This comprehensive system, housed on GitHub, exemplifies the seamless merger of traditional computer vision and modern deep learning techniques for real-time autonomous navigation tasks.
