@@ -26,9 +26,15 @@ H = (f × realHeight × imageHeight) / (objectHeightInImage × realDistance)
 D = (f × realHeight) / objectHeightInImage
 </div>
 
+![image](https://github.com/Saibernard/Advanced-Vision-Systems-for-Autonomous-Cars/assets/112599512/b17f0d70-7b71-4779-ab4f-e3ca5db8f628)
+
+
 ## Lane Detection:
 - **Pre-processing**: Converted images to HSV color space for effective color-based segmentation.
 - **Detection**: Used OpenCV's `findContours` after color thresholding to detect lane markings. The contours were then filtered based on aspect ratio and area to isolate lane markings.
+
+- ![image](https://github.com/Saibernard/Advanced-Vision-Systems-for-Autonomous-Cars/assets/112599512/7964fcfe-81a1-4f92-be9e-0ef55d08bc04)
+
 
 ## Object Detection Network Training & Deployment:
 - **Architecture**: Utilized a YOLO (You Only Look Once) model, which divides an image into an \( S × S \) grid. Each grid cell predicts \( B \) bounding boxes and confidence scores for these boxes.
