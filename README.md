@@ -8,8 +8,6 @@ This repository presents, wherein camera functionalities have been intricately i
 
 
 ## Overview
-# Vision Lab Project: Autonomous Navigation
-
 # Vision Lab Project
 
 The Vision Lab project is an amalgamation of computer vision techniques and neural network models aimed at autonomous navigation. Here's a deep dive into the technical details:
@@ -20,13 +18,11 @@ The Vision Lab project is an amalgamation of computer vision techniques and neur
 
 ## Camera Calibration & Distance Measurement:
 - **Calibration**: Deployed a two-step corner detection and refinement process using `findChessboardCorners` and `cornerSubPix`. Leveraged these points with `calibrateCamera` to derive the intrinsic matrix \( K \).
-- **Height Estimation**: Using similar triangles property, the height \( H \) of the camera, relative to the car frame, was estimated with the formula:
+- **Height Estimation**: Using similar triangles property, the height \( H \) of the camera, relative to the car frame, was estimated with the formula:  
+  <sub><sup>H = (f &times; realHeight &times; imageHeight) / (objectHeightInImage &times; realDistance)</sup></sub>
   
-  \( H = \frac{f \times \text{realHeight} \times \text{imageHeight}}{\text{objectHeightInImage} \times \text{realDistance}} \)
-
-- **Distance Algorithm**: Employed the pinhole camera model, where the distance \( D \) to an object is given by:
-  
-  \( D = \frac{f \times \text{realHeight}}{\text{objectHeightInImage}} \)
+- **Distance Algorithm**: Employed the pinhole camera model, where the distance \( D \) to an object is given by:  
+  <sub><sup>D = (f &times; realHeight) / objectHeightInImage</sup></sub>
 
 ## Lane Detection:
 - **Pre-processing**: Converted images to HSV color space for effective color-based segmentation.
@@ -34,19 +30,14 @@ The Vision Lab project is an amalgamation of computer vision techniques and neur
 
 ## Object Detection Network Training & Deployment:
 - **Architecture**: Utilized a YOLO (You Only Look Once) model, which divides an image into an \( S \times S \) grid. Each grid cell predicts \( B \) bounding boxes and confidence scores for these boxes.
-- **Training**: The loss function for the YOLO model is a combination of coordinate loss, objectness loss, and classification loss:
+- **Training**: The loss function for the YOLO model is a combination of coordinate loss, objectness loss, and classification loss:  
+  <sub><sup>Loss = &lambda;<sub>coord</sub> &Sigma;<sub>i=0</sub><sup>S<sup>2</sup></sup> &Sigma;<sub>j=0</sub><sup>B</sup> 1<sub>ij</sub><sup>obj</sup> [(x<sub>i</sub> - x&#770;<sub>i</sub>)<sup>2</sup> + (y<sub>i</sub> - y&#770;<sub>i</sub>)<sup>2</sup>]</sup></sub>
   
-  \( \text{Loss} = \lambda_{\text{coord}} \sum_{i=0}^{S^2} \sum_{j=0}^{B} 1_{ij}^{\text{obj}} [(x_i - \hat{x}_i)^2 + (y_i - \hat{y}_i)^2] \)
-
 - **Conversion**: The trained PyTorch model was exported to the ONNX (Open Neural Network Exchange) format, which was then optimized and converted to a TensorRT engine for efficient deployment.
 
 ## Integration:
 - **Pipeline**: A sequence of operations was established: image capture → lane detection → object recognition → distance calculation. This pipeline was executed for each frame, ensuring a seamless perception system for navigation.
 
 ---
-
-This comprehensive system, housed on GitHub, exemplifies the seamless merger of traditional computer vision and modern deep learning techniques for real-time autonomous navigation tasks.
-
-## Conclusion
 
 This comprehensive system, housed on GitHub, exemplifies the seamless merger of traditional computer vision and modern deep learning techniques for real-time autonomous navigation tasks.
